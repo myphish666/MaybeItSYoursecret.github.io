@@ -1,0 +1,112 @@
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000; /* Черный фон */
+    font-family: 'Arial', sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+    overflow: hidden; /* Запрещаем скроллинг */
+}
+
+/* Контейнер для всех элементов */
+.container {
+    max-width: 100%;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Стили для видео контейнера */
+.video-container {
+    width: 100%;
+    height: 60vh; /* Видео занимает 60% от высоты экрана */
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 4px solid #00FF00; /* Лаймовый цвет */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Видео */
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Контейнер для текста */
+.message-container {
+    margin-top: 20px;
+    width: 90%;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 2.5rem;
+    color: #00FF00; /* Лаймовый цвет */
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    animation: glowText 1.5s ease-in-out infinite alternate;
+}
+
+/* Стили для кнопки */
+button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #00FF00; /* Лаймовый цвет */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #009900; /* Темно-зеленый при наведении */
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 600px) {
+    .video-container {
+        height: 50vh; /* Видео занимает 50% от высоты экрана на мобильных */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(0, 255, 0, 1);
+    }
+}
+
+@keyframes glowText {
+    0% {
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 25px rgba(0, 255, 0, 1);
+    }
+}
