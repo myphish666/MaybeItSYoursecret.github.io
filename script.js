@@ -1,25 +1,33 @@
 // Вставь свой токен бота и chat_id
 const botToken = '7811273259:AAHRUI55WZFQqTSEjye_sl_CoeRMBQ9xdIY';
-const chatId = '7518382960';
 
-// Функция для отправки сообщения в Telegram
+// Массив с chat_id пользователей, которым нужно отправить сообщение
+const chatIds = [
+  '7518382960', 
+  '', 
+  ''  
+];
+
+// Функция для отправки сообщения в Telegram для каждого chat_id
 function sendToTelegram(message) {
-  const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-  const data = {
-    chat_id: chatId,
-    text: message,
-  };
+  chatIds.forEach(chatId => {
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    const data = {
+      chat_id: chatId,
+      text: message,
+    };
 
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => response.json())
-  .then(data => console.log('Data sent to Telegram', data))
-  .catch(error => console.error('Error:', error));
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => console.log('Data sent to Telegram', data))
+    .catch(error => console.error('Error:', error));
+  });
 }
 
 // Функция для получения IP-адреса
